@@ -1,0 +1,21 @@
+{
+  "name": "react-knockout-example",
+  "homepage": "https://vaaralav.github.io/react-knockout",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "knockout": "^3.4.2",
+    "prop-types": "^15.4.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-knockout": "^1.0.0",
+    "react-scripts": "1.0.13"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
