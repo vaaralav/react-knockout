@@ -10,12 +10,20 @@ npm install --save react-knockout
 
 ```jsx
 import React, { Component } from 'react';
+import counter from './counter'; // ko.observable
 
-import MyComponent from 'react-modern-library-component';
+import { WithSubscriptions } from 'react-knockout';
 
 class Example extends Component {
   render() {
-    return <MyComponent />;
+    return (
+      <WithSubscriptions
+        subscribe={{
+          counter
+        }}
+        render={({ counter }) => <pre>{counter}</pre>}
+      />
+    );
   }
 }
 ```
