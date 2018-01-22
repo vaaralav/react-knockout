@@ -1,7 +1,8 @@
 {
   "name": "react-knockout",
   "version": "1.0.0",
-  "description": "Utilities to connect Knockout observables to React components",
+  "description":
+    "Utilities to connect Knockout observables to React components",
   "author": "Ville Vaarala",
   "license": "MIT",
   "repository": {
@@ -16,8 +17,8 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "lint": "eslint src",
-    "prepublish": "npm run build",
-    "predeploy": "cd example && npm install && npm run build",
+    "prepublish": "yarn build",
+    "predeploy": "cd example && yarn && yarn build",
     "deploy": "gh-pages -d example/build"
   },
   "dependencies": {
@@ -55,7 +56,5 @@
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-postcss": "^0.5.5"
   },
-  "files": [
-    "dist"
-  ]
+  "files": ["dist"]
 }
