@@ -11,6 +11,8 @@ Live demo: https://vaaralav.github.io/react-knockout
 
 Source code: [`example/src`](example/src)
 
+Sandbox: https://codesandbox.io/s/github/vaaralav/react-knockout/tree/master/example
+
 ## Usage
 
 ### `KoSubscribe`- Subscribe to observables on the go
