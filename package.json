@@ -1,6 +1,6 @@
 {
   "name": "react-knockout",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utilities to connect Knockout observables to React components",
   "author": "Ville Vaarala",
   "license": "MIT",
