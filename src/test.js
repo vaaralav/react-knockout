@@ -1,7 +1,8 @@
-import { WithSubscriptions } from './';
+/* globals describe, expect, it */
+import { withKoSubscribe } from './';
 
-describe('WithSubscriptions', () => {
+describe('withKoSubscribe', () => {
   it('is truthy', () => {
-    expect(WithSubscriptions).toBeTruthy();
+    expect(withKoSubscribe).toBeTruthy();
   });
 });
