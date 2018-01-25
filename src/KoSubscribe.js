@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 export class KoSubscribe extends React.Component {
   static propTypes = {
     subscribe: PropTypes.object.isRequired,
-    render: PropTypes.func.isRequired
+    render: PropTypes.func,
+    children: PropTypes.func,
   };
 
   static defaultProps = {
-    subscribe: {}
+    subscribe: {},
+    render: () => null,
   };
 
   constructor(props) {
@@ -24,8 +26,8 @@ export class KoSubscribe extends React.Component {
   componentDidMount() {
     this.subscriptions = Object.keys(this.props.subscribe).map(key =>
       this.props.subscribe[key].subscribe(value =>
-        this.setState(() => ({ [key]: value }))
-      )
+        this.setState(() => ({[key]: value})),
+      ),
     );
   }
 
@@ -34,8 +36,8 @@ export class KoSubscribe extends React.Component {
   }
 
   render() {
-    const { render } = this.props;
+    const {render, children = render} = this.props;
 
-    return render(this.state);
+    return children(this.state);
   }
 }
