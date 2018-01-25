@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`KoSubscribe Should get initial value using children 1`] = `"Hello"`;
+
+exports[`KoSubscribe Should get initial value using render prop 1`] = `"Hello"`;
+
+exports[`KoSubscribe Should not throw without props 1`] = `<div />`;
+
+exports[`KoSubscribe Should update when observable updates 1`] = `"0"`;
+
+exports[`KoSubscribe Should update when observable updates 2`] = `"1"`;
