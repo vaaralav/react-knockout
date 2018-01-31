@@ -23,5 +23,5 @@ export class KoProvider extends React.Component {
 }
 
 KoProvider.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 };
