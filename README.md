@@ -1,5 +1,11 @@
 # react-knockout
 
+* [Install](#install)
+* [Demo](#demo)
+* [Usage](#usage)
+* [API](#api)
+* [License](#license)
+
 ## Install
 
 ```bash
@@ -7,6 +13,7 @@ npm install --save react-knockout
 ```
 
 ## Demo
+
 Live demo: https://vaaralav.github.io/react-knockout
 
 Source code: [`example/src`](example/src)
@@ -16,6 +23,7 @@ Sandbox: https://codesandbox.io/s/github/vaaralav/react-knockout/tree/master/exa
 ## Usage
 
 ### `KoSubscribe`- Subscribe to observables on the go
+
 ```jsx
 import React, { Component } from 'react';
 import counter from './counter'; // ko.observable
@@ -27,7 +35,7 @@ class Example extends Component {
     return (
       <KoSubscribe
         subscribe={{
-          counter
+          counter,
         }}
         render={({ counter }) => <pre>{counter}</pre>}
       />
@@ -39,18 +47,18 @@ class Example extends Component {
 ### `KoProvider` - Handle subscriptions at high level and connect where needed
 
 ```jsx
-import React, { Component } from "react";
-import counter from "./counter"; // ko.observable
-import status from "./status"; // ko.observable
-import queue from "./queue"; // ko.observable
+import React, { Component } from 'react';
+import counter from './counter'; // ko.observable
+import status from './status'; // ko.observable
+import queue from './queue'; // ko.observable
 
 import {
   KoProvider,
   ConnectedKoSubscribe,
-  withKoSubscribe
-} from "react-knockout";
+  withKoSubscribe,
+} from 'react-knockout';
 
-function Status({ state: { status = "Unknown", queue = [] } }) {
+function Status({ state: { status = 'Unknown', queue = [] } }) {
   return (
     <div>
       <h3>{status}</h3>
@@ -68,7 +76,7 @@ class Example extends Component {
         subscribe={{
           counter,
           status,
-          queue
+          queue,
         }}
       >
         <div>
@@ -81,6 +89,123 @@ class Example extends Component {
     );
   }
 }
+```
+
+## API
+
+### `<KoSubscribe subscribe render>`
+
+Makes subscribed ko.observable changes to call the render function provided as `render` or `children` prop.
+
+#### Props
+
+* `subscribe`(Object of ko.observables): The ko.observables you want to subscribe.
+* `render` or `children` (Function): A function that gets the values of the subscribed observables as the first parameter and returns JSX.
+
+#### Example
+
+Using function as `children`.
+
+```jsx
+ReactDOM.render(
+  <KoSubscribe
+    subscribe={{
+      greeting: ko.observable('Hello'),
+      name: ko.observable('world'),
+    }}
+  >
+     {({ greeting, name }) => `${greeting}, ${name}!`}
+  </KoSubscribe>,
+  element,
+);
+```
+
+Using `render` prop.
+
+```jsx
+ReactDOM.render(
+  <KoSubscribe
+    subscribe={{
+      greeting: ko.observable('Hello'),
+      name: ko.observable('world'),
+    }}
+    render={({ greeting, name }) => `${greeting}, ${name}!`}
+  />,
+  element,
+);
+```
+
+### `<KoProvider subscribe>`
+
+Makes the subscribed ko.observables available to `withKoSubscribe` and `<ConnectedKoSubscribe>` in the component hierarchy.
+
+#### Props
+
+* `subscribe`(Object of ko.observables): The ko.observables you want to subscribe.
+* `children` (ReactElement): The root of your component hierarchy.
+
+#### Example
+
+```jsx
+ReactDOM.render(
+  <KoProvider subscribe={subscriptions}>
+      <MyRootComponent />
+  </KoProvider>,
+  element,
+);
+```
+
+### `<ConnectedKoSubscribe render>`
+
+A connected component that gives access to observables subscribed with `<KoProvider>` above in the component hierarchy.
+
+#### Props
+
+* `render` or `children` (Function): A function that gets the values of the subscribed observables as the first parameter and returns JSX.
+
+#### Example
+
+```jsx
+ReactDOM.render(
+  <KoProvider
+    subscribe={{
+      greeting: ko.observable('Hello'),
+      name: ko.observable('world'),
+    }}
+  >
+    <ConnectedKoSubscribe>
+      {({ greeting, name }) => `${greeting}, ${name}!`}
+    </ConnectedKoSubscribe>
+  </KoProvider>,
+  element,
+);
+```
+
+### `withKoSubscribe(Component)`
+
+A higher-order component that gives access to observables subscribed with `<KoProvider>` above in the component hierarchy.
+
+#### Arguments
+
+* `Component` (ReactComponent): A component that will receive the values of subscribed observables as `state` prop.
+
+#### Example
+
+```jsx
+const Greeter = ({ state }) => `${state.greeting}, ${state.name}!`;
+const ConnectedGreeter = withKoSubscribe(Greeter);
+
+ReactDOM.render(
+  <KoProvider
+    subscribe={{
+      greeting: ko.observable('Hello'),
+      name: ko.observable('world'),
+    }}
+  >
+    <ConnectedGreeter />
+  </KoProvider>,
+  element,
+);
 ```
 
 ## License
