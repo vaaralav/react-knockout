@@ -1,6 +1,9 @@
 # react-knockout
 
 [![Build Status](https://travis-ci.org/vaaralav/react-knockout.svg?branch=master)](https://travis-ci.org/vaaralav/react-knockout)
+[![npm version](https://badge.fury.io/js/react-knockout.svg)](https://npmjs.com/package/react-knockout)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](LICENSE)
+
 
 * [Install](#install)
 * [Demo](#demo)
