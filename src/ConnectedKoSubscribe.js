@@ -4,12 +4,20 @@ import { Subscriber } from 'react-broadcast';
 
 import { KoProvider } from './KoProvider';
 
-export const ConnectedKoSubscribe = props => (
-  <Subscriber channel={KoProvider.channel}>
-    {value => props.render(value)}
-  </Subscriber>
-);
+export function ConnectedKoSubscribe(props) {
+  const {render, children = render} = props;
+  return (
+    <Subscriber channel={KoProvider.channel}>
+      {value => children(value)}
+    </Subscriber>
+  );
+}
+
+ConnectedKoSubscribe.defaultProps = {
+  render: () => null,
+};
 
 ConnectedKoSubscribe.propTypes = {
-  render: PropTypes.func.isRequired
+  children: PropTypes.func,
+  render: PropTypes.func,
 };
