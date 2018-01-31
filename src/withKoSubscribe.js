@@ -13,7 +13,7 @@ export const withKoSubscribe = Component => {
     Component.name ||
     'Component'})`;
   Wrapper.propTypes = {
-    innerRef: PropTypes.func
+    innerRef: PropTypes.func,
   };
   Wrapper.WrappedComponent = Component;
   return hoistNonReactStatics(Wrapper, Component);

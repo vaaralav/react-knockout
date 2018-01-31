@@ -28,7 +28,7 @@ Sandbox: https://codesandbox.io/s/github/vaaralav/react-knockout/tree/master/exa
 import React, { Component } from 'react';
 import counter from './counter'; // ko.observable
 
-import { KoSubscribe } from 'react-knockout';
+import { KoSubscribe} from 'react-knockout';
 
 class Example extends Component {
   render() {

@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ko from 'knockout';
 import renderer from 'react-test-renderer';
-import {KoSubscribe} from './';
+import { KoSubscribe } from './';
 
 describe('KoSubscribe', () => {
   it('Should not throw without props', () => {
@@ -28,7 +28,9 @@ describe('KoSubscribe', () => {
   it('Should get initial value using render prop', () => {
     const value = ko.observable('Hello');
     const wrapper = renderer
-      .create(<KoSubscribe subscribe={{value}} render={({value}) => value} />)
+      .create(
+        <KoSubscribe subscribe={{ value }} render={({ value }) => value} />,
+      )
       .toJSON();
     expect(wrapper).toMatchSnapshot();
   });
@@ -37,7 +39,7 @@ describe('KoSubscribe', () => {
     const value = ko.observable('Hello');
     const wrapper = renderer
       .create(
-        <KoSubscribe subscribe={{value}}>{({value}) => value}</KoSubscribe>,
+        <KoSubscribe subscribe={{ value }}>{({ value }) => value}</KoSubscribe>,
       )
       .toJSON();
     expect(wrapper).toMatchSnapshot();
@@ -46,7 +48,9 @@ describe('KoSubscribe', () => {
   it('Should update when observable updates', () => {
     const counter = ko.observable(0);
     const component = renderer.create(
-      <KoSubscribe subscribe={{counter}}>{({counter}) => counter}</KoSubscribe>,
+      <KoSubscribe subscribe={{ counter }}>
+        {({ counter }) => counter}
+      </KoSubscribe>,
     );
 
     expect(component.toJSON()).toMatchSnapshot();

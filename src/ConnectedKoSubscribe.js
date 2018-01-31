@@ -5,7 +5,7 @@ import { Subscriber } from 'react-broadcast';
 import { KoProvider } from './KoProvider';
 
 export function ConnectedKoSubscribe(props) {
-  const {render, children = render} = props;
+  const { render, children = render } = props;
   return (
     <Subscriber channel={KoProvider.channel}>
       {value => children(value)}

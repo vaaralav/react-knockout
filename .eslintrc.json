@@ -5,16 +5,18 @@
     "prettier/react",
     "prettier/standard",
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
   ],
   "env": {
     "es6": true
   },
   "plugins": [
-    "react"
+    "react",
+    "prettier"
   ],
   "parserOptions": {
     "sourceType": "module",
     "allowImportExportEverywhere": true
-  },
+  }
 }

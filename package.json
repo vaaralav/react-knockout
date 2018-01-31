@@ -1,7 +1,8 @@
 {
   "name": "react-knockout",
   "version": "1.0.4",
-  "description": "Utilities to connect Knockout observables to React components",
+  "description":
+    "Utilities to connect Knockout observables to React components",
   "author": "Ville Vaarala",
   "license": "MIT",
   "repository": {
@@ -15,7 +16,8 @@
     "test": "react-scripts test --env=jsdom",
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "lint": "eslint src",
+    "lint": "eslint src && prettylint README.md",
+    "lint:fix": "eslint src --fix && prettylint README.md --fix",
     "prepublish": "yarn build",
     "predeploy": "cd example && yarn && yarn build",
     "deploy": "gh-pages -d example/build"
@@ -42,11 +44,14 @@
     "eslint-config-standard-react": "^5.0.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-prettier": "^2.5.0",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.5.1",
     "eslint-plugin-standard": "^3.0.1",
     "gh-pages": "^1.0.0",
     "knockout": "^3.4.2",
+    "prettier": "1.10.2",
+    "prettylint": "^1.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "^1.0.17",
@@ -57,7 +62,5 @@
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-postcss": "^0.5.5"
   },
-  "files": [
-    "dist"
-  ]
+  "files": ["dist"]
 }

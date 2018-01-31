@@ -26,7 +26,7 @@ export class KoSubscribe extends React.Component {
   componentDidMount() {
     this.subscriptions = Object.keys(this.props.subscribe).map(key =>
       this.props.subscribe[key].subscribe(value =>
-        this.setState(() => ({[key]: value})),
+        this.setState(() => ({ [key]: value })),
       ),
     );
   }
@@ -36,7 +36,7 @@ export class KoSubscribe extends React.Component {
   }
 
   render() {
-    const {render, children = render} = this.props;
+    const { render, children = render } = this.props;
 
     return children(this.state);
   }
