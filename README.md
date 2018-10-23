@@ -4,11 +4,11 @@
 [![npm version](https://badge.fury.io/js/react-knockout.svg)](https://npmjs.com/package/react-knockout)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](LICENSE)
 
-* [Install](#install)
-* [Demo](#demo)
-* [Usage](#usage)
-* [API](#api)
-* [License](#license)
+- [Install](#install)
+- [Demo](#demo)
+- [Usage](#usage)
+- [API](#api)
+- [License](#license)
 
 ## Install
 
@@ -103,8 +103,8 @@ Makes subscribed ko.observable changes to call the render function provided as `
 
 #### Props
 
-* `subscribe`(Object of ko.observables): The ko.observables you want to subscribe.
-* `render` or `children` (Function): A function that gets the values of the subscribed observables as the first parameter and returns JSX.
+- `subscribe`(Object of ko.observables): The ko.observables you want to subscribe.
+- `render` or `children` (Function): A function that gets the values of the subscribed observables as the first parameter and returns JSX.
 
 #### Example
 
@@ -145,8 +145,8 @@ Makes the subscribed ko.observables available to `withKoSubscribe` and `<Connect
 
 #### Props
 
-* `subscribe`(Object of ko.observables): The ko.observables you want to subscribe.
-* `children` (ReactElement): The root of your component hierarchy.
+- `subscribe`(Object of ko.observables): The ko.observables you want to subscribe.
+- `children` (ReactElement): The root of your component hierarchy.
 
 #### Example
 
@@ -165,7 +165,7 @@ A connected component that gives access to observables subscribed with `<KoProvi
 
 #### Props
 
-* `render` or `children` (Function): A function that gets the values of the subscribed observables as the first parameter and returns JSX.
+- `render` or `children` (Function): A function that gets the values of the subscribed observables as the first parameter and returns JSX.
 
 #### Example
 
@@ -191,7 +191,7 @@ A higher-order component that gives access to observables subscribed with `<KoPr
 
 #### Arguments
 
-* `Component` (ReactComponent): A component that will receive the values of subscribed observables as `state` prop.
+- `Component` (ReactComponent): A component that will receive the values of subscribed observables as `state` prop.
 
 #### Example
 
